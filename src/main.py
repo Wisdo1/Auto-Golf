@@ -16,12 +16,62 @@ brain=Brain()
 #shared list of list for all screen entities
 Screen = []
 
+def newButton(x,y,func):
+        x = 0; y= 0; Screen.append([0,x,y,func])# button at 0,0
 
-def button1():
-    # gurt: Yo
+
+
+def warn():
+    brain.three_wire_port.a.value(1) 
+    # brain.three_wire_port.a.value(0)
+
+# up and down 5 degrees
+def angle(dir):
+    if dir == 'U':
+        pass
+    else:
+        pass 
+
+# left and right 5 degrees
+def turn(dir):
+    if dir == 'L' :
+        pass
+    else:
+        pass 
+
+# shooting power
+def half():
     pass
-x = 0; y= 0; Screen.append([0,x,y,button1()])# button at 0,0
+def full():
+    pass
 
+# self explanitory
+def SHOOT():
+    pass
+
+# modes 
+def weak():
+    Screen.clear()
+    newButton(0,10,half()) # priming button
+
+    newButton(100,10,turn('L'))
+    newButton(100,20,turn('R'))
+    newButton(100,30,angle('U'))
+    newButton(100,40,angle('D'))
+    updateScreen()
+    
+def strong():
+    x = 10; y= 10; Screen.append([0,x,y,full()])# button at 0,0
+
+    x = 100; y= 10; Screen.append([0,x,y,turn('L')])# button at 0,0
+    x = 100; y= 20; Screen.append([0,x,y,turn('R')])# button at 0,0
+    x = 100; y= 30; Screen.append([0,x,y,angle('U')])# button at 0,0
+    x = 100; y= 40; Screen.append([0,x,y,angle('D')])# button at 0,0
+    updateScreen()
+
+# initial screen
+x = 0; y= 0; Screen.append([0,x,y,weak()])# button at 0,0
+x = 10; y= 10; Screen.append([0,x,y,strong()])# button at 0,0
 
 def updateScreen():
     scr= brain.screen
@@ -40,16 +90,14 @@ def updateScreen():
 
 
 def pressed(x,y):
-    # brain.screen.x_position()
     for element in Screen:
         if x == element[1] and y == element[2]:
             return element[3] # returns the linked function
 # pressed callback
 brain.screen.pressed(pressed,(brain.screen.x_position,brain.screen.y_position))
 
-
+# sets up screen
 updateScreen()
-
 
 
         
