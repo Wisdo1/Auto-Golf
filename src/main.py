@@ -17,8 +17,8 @@ brain=Brain()
 Screen = []
 
 def newButton(x,y,func):
-        x = 0; y= 0; Screen.append([0,x,y,func])# button at 0,0
-
+    x = 0; y= 0; Screen.append([0,x,y,func])# button at 0,0
+    # x = 0; y= 0; Screen.append([1,x,y,func])# button at 0,0 #Circular
 
 
 def warn():
@@ -74,8 +74,14 @@ x = 0; y= 0; Screen.append([0,x,y,weak()])# button at 0,0
 x = 10; y= 10; Screen.append([0,x,y,strong()])# button at 0,0
 
 def updateScreen():
-    scr= brain.screen
-    scr.set_fill_color(Color.BLUE)
+    scr= brain.screen 
+
+    scr.set_fill_color(Color(16, 18, 24))
+    scr.draw_rectangle(1000,10000,10000,10000) # sets background
+
+  
+    brain.screen.set_pen_color(Color.WHITE)
+    brain.screen.set_fill_color(Color.BLUE)
 
     for element in Screen:
 
@@ -87,7 +93,8 @@ def updateScreen():
             scr.draw_rectangle(element[1],element[2],5,5)
         if type == 1: # circular buttons
             scr.draw_circle(element[1],element[2],5)
-
+        if type == 3:
+            scr.draw_image_from_file('crazy.png',0,0)
 
 def pressed(x,y):
     for element in Screen:
