@@ -89,14 +89,15 @@ def reset():
 # modes 
 def weak():
     SCREENSTR.clear() # resets our screen storage
-    # newButton(0,10,half()) # priming button
+    x = 10; y= 10; SCREENSTR.append([0,x,y,half()])# button
 
-    # newButton(100,10,turn('L'))
-    # newButton(100,20,turn('R'))
-    # newButton(100,30,angle('U'))
-    # newButton(100,40,angle('D'))
+    x = 100; y= 10; SCREENSTR.append([0,x,y,turn('L')])# button at 0,0
+    x = 100; y= 20; SCREENSTR.append([0,x,y,turn('R')])# button at 0,0
+    x = 100; y= 30; SCREENSTR.append([0,x,y,angle('U')])# button at 0,0
+    x = 100; y= 40; SCREENSTR.append([0,x,y,angle('D')])# button at 0,0
 
-    # newButton(100,40,reset())
+    x = 100; y= 40; SCREENSTR.append([0,x,y,reset()])# button
+
     updateScreen()
     
 def strong():
@@ -106,6 +107,9 @@ def strong():
     x = 100; y= 20; SCREENSTR.append([0,x,y,turn('R')])# button at 0,0
     x = 100; y= 30; SCREENSTR.append([0,x,y,angle('U')])# button at 0,0
     x = 100; y= 40; SCREENSTR.append([0,x,y,angle('D')])# button at 0,0
+
+    x = 100; y= 40; SCREENSTR.append([0,x,y,reset()])# button
+    
     updateScreen()
 
 
