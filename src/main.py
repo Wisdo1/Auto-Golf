@@ -38,9 +38,9 @@ def updateScreen():
         y = element[2]
 
         if type == 0: # buttons
-            scr.draw_rectangle(element[1],element[2],5,5)
+            scr.draw_rectangle(element[1],element[2],100,50)
         if type == 1: # circular buttons
-            scr.draw_circle(element[1],element[2],5)
+            scr.draw_circle(element[1],element[2],50)
         if type == 2:
             scr.draw_image_from_file('crazy.png',0,0)
 
@@ -81,35 +81,33 @@ def SHOOT():
 
 def reset():
     # initial screen
-    x = 0
-    y= 0
-    SCREENSTR.append((0,x,y,weak()))# button at 0,0
-    x = 10; y= 10; SCREENSTR.append([0,x,y,strong()])# button at 0,0
+    x = 10; y= 10;SCREENSTR.append((0,x,y,weak()))
+    x = 175; y= 10; SCREENSTR.append([0,x,y,strong()])
 
 # modes 
 def weak():
     SCREENSTR.clear() # resets our screen storage
-    x = 10; y= 10; SCREENSTR.append([0,x,y,half()])# button
+    x = 10; y= 10; SCREENSTR.append([0,x,y,half()])
 
-    x = 100; y= 10; SCREENSTR.append([0,x,y,turn('L')])# button at 0,0
-    x = 100; y= 20; SCREENSTR.append([0,x,y,turn('R')])# button at 0,0
-    x = 100; y= 30; SCREENSTR.append([0,x,y,angle('U')])# button at 0,0
-    x = 100; y= 40; SCREENSTR.append([0,x,y,angle('D')])# button at 0,0
+    x = 100; y= 75; SCREENSTR.append([0,x,y,turn('L')])
+    x = 200; y= 75; SCREENSTR.append([0,x,y,turn('R')])
+    x = 300; y= 75; SCREENSTR.append([0,x,y,angle('U')])
+    x = 400; y= 75; SCREENSTR.append([0,x,y,angle('D')])
 
-    x = 100; y= 40; SCREENSTR.append([0,x,y,reset()])# button
+    x = 500; y= 40; SCREENSTR.append([0,x,y,reset()])# reset
 
     updateScreen()
     
 def strong():
-    x = 10; y= 10; SCREENSTR.append([0,x,y,full()])# button at 0,0
+    x = 10; y= 10; SCREENSTR.append([0,x,y,full()])
 
-    x = 100; y= 10; SCREENSTR.append([0,x,y,turn('L')])# button at 0,0
-    x = 100; y= 20; SCREENSTR.append([0,x,y,turn('R')])# button at 0,0
-    x = 100; y= 30; SCREENSTR.append([0,x,y,angle('U')])# button at 0,0
-    x = 100; y= 40; SCREENSTR.append([0,x,y,angle('D')])# button at 0,0
+    x = 100; y= 75; SCREENSTR.append([0,x,y,turn('L')])
+    x = 200; y= 75; SCREENSTR.append([0,x,y,turn('R')])
+    x = 300; y= 75; SCREENSTR.append([0,x,y,angle('U')])
+    x = 400; y= 75; SCREENSTR.append([0,x,y,angle('D')])
 
-    x = 100; y= 40; SCREENSTR.append([0,x,y,reset()])# button
-    
+    x = 100; y= 40; SCREENSTR.append([0,x,y,reset()])# reset
+      
     updateScreen()
 
 
